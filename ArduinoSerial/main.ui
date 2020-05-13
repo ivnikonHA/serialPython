@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>429</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>30</y>
-     <width>381</width>
+     <y>50</y>
+     <width>231</width>
      <height>31</height>
     </rect>
    </property>
@@ -26,8 +26,8 @@
   <widget class="QComboBox" name="Speed">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>100</y>
+     <x>260</x>
+     <y>50</y>
      <width>141</width>
      <height>32</height>
     </rect>
@@ -36,10 +36,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>10</x>
      <y>10</y>
-     <width>41</width>
-     <height>16</height>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -54,10 +54,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>70</y>
-     <width>91</width>
-     <height>16</height>
+     <x>260</x>
+     <y>10</y>
+     <width>101</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -72,27 +72,27 @@
   <widget class="QPushButton" name="ConnectButton">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>80</y>
-     <width>121</width>
-     <height>71</height>
+     <x>110</x>
+     <y>100</y>
+     <width>101</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Подключиться</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="EnableBtn">
+  <widget class="QPushButton" name="DisconnectBtn">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>170</y>
-     <width>111</width>
-     <height>81</height>
+     <x>230</x>
+     <y>100</y>
+     <width>101</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Включить</string>
+    <string>Отключиться</string>
    </property>
   </widget>
  </widget>

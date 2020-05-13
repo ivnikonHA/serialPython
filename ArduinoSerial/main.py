@@ -14,13 +14,21 @@ class LedApp(QtWidgets.QMainWindow, design.Ui_Form):
         self.Speed.addItems(speeds)
         self.realport = None
         self.ConnectButton.clicked.connect(self.connect)
-        self.EnableBtn.clicked.connect(self.send)
+        self.DisconnectBtn.clicked.connect(self.disconnect)
 
     def connect(self):
         try:
             self.realport = serial.Serial(self.Port.currentText(),int(self.Speed.currentText()))
-            self.ConnectButton.setStyleSheet("background-color: green")
-            self.ConnectButton.setText('Подключено')
+            # self.ConnectButton.setStyleSheet("background-color: green")
+            self.ConnectButton.setDisabled(True)
+            self.DisconnectBtn.setDisabled(False)
+        except Exception as e:
+            print(e)
+    def disconnect(self):
+        try:
+            self.realport.close()
+            self.ConnectButton.setDisabled(False)
+            self.DisconnectBtn.setDisabled(True)
         except Exception as e:
             print(e)
 
