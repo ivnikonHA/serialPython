@@ -13,28 +13,43 @@ class LedApp(QtWidgets.QMainWindow, design.Ui_Form):
         self.Port.addItems(serial_ports())
         self.Speed.addItems(speeds)
         self.realport = None
-        self.ConnectButton.clicked.connect(self.connect)
+        self.DisconnectBtn.setDisabled(True)
+        self.StartBtn.setDisabled(True)
+        self.StopBtn.setDisabled(True)
+        self.ConnectBtn.clicked.connect(self.connect)
         self.DisconnectBtn.clicked.connect(self.disconnect)
+        self.StartBtn.clicked.connect(self.read)
 
     def connect(self):
         try:
-            self.realport = serial.Serial(self.Port.currentText(),int(self.Speed.currentText()))
+            self.realport = serial.Serial(self.Port.currentText(),int(self.Speed.currentText()),timeout=1)
+            # self.realport.open()
             # self.ConnectButton.setStyleSheet("background-color: green")
-            self.ConnectButton.setDisabled(True)
+            self.ConnectBtn.setDisabled(True)
             self.DisconnectBtn.setDisabled(False)
+            self.StartBtn.setDisabled(False)
+            self.StopBtn.setDisabled(False)
+            self.Port.setDisabled(True)
+            self.Speed.setDisabled(True)
         except Exception as e:
             print(e)
     def disconnect(self):
         try:
             self.realport.close()
-            self.ConnectButton.setDisabled(False)
+            self.ConnectBtn.setDisabled(False)
             self.DisconnectBtn.setDisabled(True)
+            self.StartBtn.setDisabled(True)
+            self.StopBtn.setDisabled(True)
+            self.Port.setDisabled(False)
+            self.Speed.setDisabled(False)
         except Exception as e:
             print(e)
 
-    def send(self):
+    def read(self):
         if self.realport:
-            self.realport.write(b'b')
+            line = self.realport.readline()
+            # self.OutputListView.ad
+            print(str(line))
 
 
 
